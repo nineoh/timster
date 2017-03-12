@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+// Vendor
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+// Custom
+@import 'assets/styles/colors';
+@import 'assets/styles/main';
