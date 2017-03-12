@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     console.log('HomeComponent init')
-      this.notesService.notes().subscribe( (data: any) => {
+      this.notesService.list().subscribe( (data: any) => {
           console.log('HomeComponent response', data);
           this.notes = data;
       });

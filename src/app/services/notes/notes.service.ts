@@ -3,15 +3,22 @@ import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs';
 import 'rxjs/add/operator/map';
 
-const NOTES_ENDPOINT = 'https://timster-backend.herokuapp.com/api/Notes';
+const NOTES_ENDPOINT = 'https://timster-backend.herokuapp.com/api/notes';
 
 @Injectable()
 export class NotesService {
 
   constructor(private http: Http) { }
 
-  notes(): Observable<any>{
+  list(): Observable<any>{
     return this.http.get(NOTES_ENDPOINT).map( (response: Response) => {
+        console.log('Notes response', response.json());
+        return response.json();
+    });
+  }
+
+  add(note: any): Observable<any>{
+    return this.http.post(NOTES_ENDPOINT, note).map( (response: Response) => {
         console.log('Notes response', response.json());
         return response.json();
     });
