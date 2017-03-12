@@ -12,7 +12,8 @@ export class NotesService {
 
   notes(): Observable<any>{
     return this.http.get(NOTES_ENDPOINT).map( (response: Response) => {
-        console.log('Notes response', response);
+        console.log('Notes response', response.json());
+        return response.json();
     });
   }
 

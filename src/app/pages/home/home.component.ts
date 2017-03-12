@@ -7,13 +7,15 @@ import {NotesService} from '../../services/notes/notes.service'
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  notes: any;
 
-  constructor(private notes: NotesService) { }
+  constructor(private notesService: NotesService) { }
 
   ngOnInit() {
     console.log('HomeComponent init')
-      this.notes.notes().subscribe( (data: any) => {
+      this.notesService.notes().subscribe( (data: any) => {
           console.log('HomeComponent response', data);
+          this.notes = data;
       });
   }
 
