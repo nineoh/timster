@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ProfileModule} from './pages/profile/profile.module'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomeComponent } from './pages/home/home.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ProfileModule
   ],
   providers: [],
   bootstrap: [AppComponent]
