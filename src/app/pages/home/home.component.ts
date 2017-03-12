@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NotesService} from '../../services/notes/notes.service'
 
 @Component({
   selector: 'tim-home',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private notes: NotesService) { }
 
   ngOnInit() {
+    console.log('HomeComponent init')
+      this.notes.notes().subscribe( (data: any) => {
+          console.log('HomeComponent response', data);
+      });
   }
 
 }

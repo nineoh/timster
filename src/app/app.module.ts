@@ -8,7 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
-import { ProfileModule} from './pages/profile/profile.module'
+import { ProfileModule} from './pages/profile/profile.module';
+import {ServicesModule} from './services/services.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProfileModule} from './pages/profile/profile.module'
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    ProfileModule
+    ProfileModule,
+    ServicesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
