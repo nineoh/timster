@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  isCollapsed: boolean = true;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  close(event: Event): void {
+    this.isCollapsed = true;
   }
 
 }
