@@ -2,6 +2,10 @@
   "name": "timster",
   "version": "0.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "7.7.1",
+    "npm": "4.1.2"
+  },
   "scripts": {
     "ng": "ng",
     "start": "http-server dist",
