@@ -1,9 +1,10 @@
+import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs';
 import 'rxjs/add/operator/map';
 
-const NOTES_ENDPOINT = 'https://timster-backend.herokuapp.com/api/notes';
+const NOTES_ENDPOINT = `${environment.endpoint}api/notes`;
 
 @Injectable()
 export class NotesService {
