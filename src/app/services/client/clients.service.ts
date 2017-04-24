@@ -14,17 +14,19 @@ export class ClientsService {
 
   list(): Observable<IClient[]>{
     return this.http.get(CLIENT_ENDPOINT).map( (response: Response) => {
-        console.log('Notes response', response.json());
+        console.log('Client response list', response.json());
         return response.json();
     });
   }
 
   add(client: IClient): Observable<IClient>{
-    console.log('adding client', client);
-    return this.http.post(CLIENT_ENDPOINT, client).map( (response: Response) => {
-        console.log('Notes response', response.json());
+    console.log('adding client', client , 'endpoint', CLIENT_ENDPOINT);
+    return this.http
+      .post(CLIENT_ENDPOINT, client)
+      .map( (response: Response) => {
+        console.log('Client add response', response.json());
         return response.json();
-    });
+       });
   }
 
 }

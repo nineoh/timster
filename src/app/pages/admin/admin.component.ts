@@ -1,3 +1,4 @@
+import { AdminModule } from './admin.module';
 import { IClient } from './../../services/client/client.model';
 import { ClientsService } from './../../services/client/clients.service';
 import { Component } from '@angular/core';
@@ -17,10 +18,13 @@ export class AdminComponent{
             first: 'Hans',
             last: 'Jakob',
             username: 'hj',
-            password: '1234'
+            password: '1234',
+            profile: 'http://graph.facebook.com/691850668/picture?width=200&height=200'
         };
 
-        this._clients.add(dummyClient);
+        this._clients.add(dummyClient).subscribe((resp: any) => {
+            console.log('AdminComponent.add', resp);
+        });
     }
 
 }
