@@ -1,4 +1,4 @@
-export interface IClient{
+export interface IClient {
     first: string;
     last: string;
     username: string;
@@ -8,7 +8,7 @@ export interface IClient{
     profile?: string;
 }
 
-export interface ISkill{
+export interface ISkill {
     name: string;
     level: number;
 }
