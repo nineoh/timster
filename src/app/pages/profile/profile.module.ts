@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
-import { ProfileFormComponent } from './profile-form/profile-form.component';
 
 @NgModule({
   imports: [
@@ -14,8 +13,7 @@ import { ProfileFormComponent } from './profile-form/profile-form.component';
     ProfileRoutingModule
   ],
   declarations: [
-    ProfileComponent,
-    ProfileFormComponent
+    ProfileComponent
   ]
 })
 export class ProfileModule { }

@@ -1,16 +1,21 @@
 <form [formGroup]="profileForm" action="index.html" method="post" (ngSubmit)="onSubmit()" novalidate>
   
-  <div class="form-group" [ngClass]="{'has-error': profileForm.get('firstName')?.touched && profileForm.get('firstName')?.invalid}">
-    <label for="firstName">First Name*</label>
-    <input type="text" name="firstName" value="" class="form-control" formControlName="firstName">
-    <span *ngIf="profileForm.get('firstName')?.touched && profileForm.get('firstName')?.invalid" class="help-block">Field is required.</span>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group" [ngClass]="{'has-error': profileForm.get('firstName')?.touched && profileForm.get('firstName')?.invalid}">
+        <label for="firstName">First Name*</label>
+        <input type="text" name="firstName" value="" class="form-control" formControlName="firstName">
+        <span *ngIf="profileForm.get('firstName')?.touched && profileForm.get('firstName')?.invalid" class="help-block">Field is required.</span>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group" [ngClass]="{'has-error': profileForm.get('lastName')?.touched && profileForm.get('lastName')?.invalid}">
+        <label for="lastName">Last Name*</label>
+        <input type="text" name="lastName" value="" class="form-control" formControlName="lastName">
+        <span *ngIf="profileForm.get('lastName')?.touched && profileForm.get('lastName')?.invalid" class="help-block">Field is required.</span>
+      </div>
+    </div>
   </div>
-
-  <div class="form-group" [ngClass]="{'has-error': profileForm.get('lastName')?.touched && profileForm.get('lastName')?.invalid}">
-    <label for="lastName">Last Name*</label>
-    <input type="text" name="lastName" value="" class="form-control" formControlName="lastName">
-    <span *ngIf="profileForm.get('lastName')?.touched && profileForm.get('lastName')?.invalid" class="help-block">Field is required.</span>
- </div>
 
   <div class="form-group" [ngClass]="{'has-error': profileForm.get('username')?.touched && profileForm.get('username')?.invalid}">
     <label for="username">Username*</label>
