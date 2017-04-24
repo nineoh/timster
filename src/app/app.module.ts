@@ -1,3 +1,4 @@
+import { AdminModule } from './pages/admin/admin.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -26,6 +27,7 @@ import { CollapseModule } from 'ng2-bootstrap/collapse';
     HttpModule,
     AppRoutingModule,
     ProfileModule,
+    AdminModule,
     ServicesModule,
     CollapseModule.forRoot()
   ],
