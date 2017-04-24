@@ -36,6 +36,6 @@ If you haven't already, log in to your Heroku account and follow the prompts to 
 
 `heroku keys:add` (if not prompted)
 
-Run `git remote add heroku git@heroku.com:project.git` within project folder. Replace _project.git_ with your project name.
+Run `git remote add heroku  https://git.heroku.com/project.git` within project folder. Replace _project.git_ with your Heroku app name.
 
 Now you are able to access the Heroku repository via `git pull heroku master`.
