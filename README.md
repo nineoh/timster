@@ -28,5 +28,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Deployment
 ### Add existing Heroku repository
+Download and install the Heroku CLI.
+If you haven't already, log in to your Heroku account and follow the prompts to create a new SSH public key.
+`heroku login`
+`heroku keys:add` (if not prompted)
+Run `git remote add heroku git@heroku.com:project.git` within project folder. Replace _project.git_ with your project name.
 
-Run `git remote add heroku git@heroku.com:project.git` within project folder.
+Now you are able to access the Heroku repository via `git pull heroku master`.
