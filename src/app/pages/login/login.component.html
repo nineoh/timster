@@ -20,8 +20,9 @@
       class="form-control" 
       placeholder="Password" required>
     </div>
-   
-    <div class="checkbox">
+
+    <div class="row">
+      <div class="checkbox">
       <label>
         <input type="checkbox" value="remember-me"> Remember me
       </label>
@@ -29,6 +30,11 @@
     <button class="btn btn-lg btn-primary btn-block" 
     (click)="login(formData)"
     type="submit">Sign in</button>
+    </div>
+    
   </form>
 
+  <div class="row">
+    <a routerLink="/registration">Register</a>
+  </div>
 </div> <!-- /container -->
