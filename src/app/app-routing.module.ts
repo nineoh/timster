@@ -14,8 +14,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'registration',
-    component: RegistrationComponent,
-    canActivate: [HasSession],
+    component: RegistrationComponent
   },
   {
     path: 'login',
