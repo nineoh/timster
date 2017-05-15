@@ -33,7 +33,7 @@ export class AvatarComponent implements OnInit {
     this.childModal.hide();
   }
 
-  public onSubmit($event): void {
+  public onSubmit(): void {
     this.avatarUrl = this.avatarForm.controls.avatarUrl.value;
 
     this.submitAvatar.emit(this.avatarUrl);
