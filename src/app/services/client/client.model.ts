@@ -12,3 +12,8 @@ export interface ISkill {
     name: string;
     level: number;
 }
+
+export interface ICredentials {
+    username: string;
+    password: string;
+}

@@ -1,4 +1,4 @@
-import { IClient } from './client.model';
+import { IClient, ICredentials } from './client.model';
 import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import {Http, Response} from '@angular/http';
@@ -11,6 +11,17 @@ const CLIENT_ENDPOINT = `${environment.endpoint}api/clients`;
 export class ClientsService {
 
   constructor(private http: Http) { }
+
+  login(credentials: ICredentials): Observable<IClient> {   
+
+      return this.http.post(`${CLIENT_ENDPOINT}/login` , credentials)
+        .map( (resp: Response) => resp.json() )
+        .switchMap( (arr: IClient[]) =>  {
+            console.log('ClientsService.login' , arr);
+            return arr.length ? Observable.of(arr[0]) : Observable.throw( {} );
+        })
+        .catch( (error: any) => Observable.throw(error) );
+  }
 
   list(): Observable<IClient[]> {
     return this.http.get(CLIENT_ENDPOINT).map( (response: Response) => {
