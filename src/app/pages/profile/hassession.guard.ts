@@ -8,7 +8,7 @@ export class HasSession implements CanActivate {
     constructor(private clientSession: ClientSession, private router: Router){
         console.log('HasSession.canActivate init');
     }
-            
+
     canActivate(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): Observable<boolean>|boolean {
