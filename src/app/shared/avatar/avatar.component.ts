@@ -1,7 +1,8 @@
-import { AvatarUploadService } from './../../services/avatar-upload/avatar-upload.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDirective } from 'ng2-bootstrap/modal';
+import { ClientsService } from './../../services/client/clients.service';
+import { IClient } from './../../services/client/client.model';
 
 @Component({
   selector: 'tim-avatar',
@@ -9,16 +10,16 @@ import { ModalDirective } from 'ng2-bootstrap/modal';
   styleUrls: ['./avatar.component.scss']
 })
 export class AvatarComponent implements OnInit {
+  @Output() submitAvatar: EventEmitter<string> = new EventEmitter();
   @ViewChild('childModal') public childModal: ModalDirective;
-  @ViewChild('avatarFile') avatarFile;
 
   private _isEditMode = false;
+  private _avatarUrl = 'https://graph.facebook.com/691850668/picture?width=200&height=200';
   avatarForm: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder,
-              private _avatarUploadService: AvatarUploadService) {
+  constructor(private _formBuilder: FormBuilder) {
     this.avatarForm = _formBuilder.group({
-      avatarFile: ['', Validators.required]
+      avatarUrl: ['', Validators.required]
     });
   }
 
@@ -33,18 +34,11 @@ export class AvatarComponent implements OnInit {
     this.childModal.hide();
   }
 
-  public onSubmit(): void {
-    const fi = this.avatarFile.nativeElement;
-    if (fi.files && fi.files[0]) {
-      const fileToUpload = fi.files[0];
-      this._avatarUploadService
-          .upload(fileToUpload)
-          .subscribe(res => {
-            console.log(res);
-          });
+  public onSubmit($event): void {
+    this._avatarUrl = this.avatarForm.controls.avatarUrl.value;
 
-      this.childModal.hide();
-    }
+    this.submitAvatar.emit(this._avatarUrl);
+    this.childModal.hide();
   }
 
 }

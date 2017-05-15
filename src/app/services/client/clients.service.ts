@@ -29,7 +29,7 @@ export class ClientsService {
        })
        .catch( (error: any) => {
         console.error('ClientsService.add' , error);
-         return Observable.throw(error); 
+         return Observable.throw(error);
        });
   }
 
