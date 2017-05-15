@@ -1,11 +1,11 @@
 <div class="tim-avatar">
-  <img src="http://graph.facebook.com/691850668/picture?width=200&height=200" alt="avatar" class="img-circle img-responsive">
+  <img src="{{_avatarUrl}}" alt="avatar" class="img-circle img-responsive">
   <div class="avatar-overlay text-center" (click)="showChildModal()">
     <i class="fa fa-pencil fa-3x"></i>
   </div>
 
   <div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title pull-left">Choose Profile Image</h4>
@@ -17,14 +17,12 @@
 
           <form [formGroup]="avatarForm" action="index.html" method="post" (ngSubmit)="onSubmit()">
             <div class="form-group">
-              <label for="avatarFile">Choose a file</label>
-              <input #avatarFile type="file" name="avatarFile" class="form-control" formControlName="avatarFile">
+              <label for="avatarUrl">Add an image URL</label>
+              <input type="text" placeholder="https://graph.facebook.com/691850668/picture?width=200&height=200" name="avatarUrl" class="form-control" formControlName="avatarUrl">
             </div>
 
-            {{ avatarForm.value | json }}
-
             <button type="button" name="button" class="btn" (click)="avatarForm.reset(); hideChildModal()">Cancel</button>
-            <button type="submit" name="button" class="btn btn-primary">Submit</button>
+            <button [disabled]="avatarForm.invalid" type="submit" name="button" class="btn btn-primary">Submit</button>
           </form>
 
         </div>
