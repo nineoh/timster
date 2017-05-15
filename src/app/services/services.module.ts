@@ -1,3 +1,4 @@
+import { AvatarUploadService } from './avatar-upload/avatar-upload.service';
 import { ClientsService } from './client/clients.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -8,7 +9,8 @@ import {NotesService} from './notes/notes.service';
 @NgModule({
   providers: [
       ClientsService,
-      NotesService
+      NotesService,
+      AvatarUploadService
     ]
 })
 export class ServicesModule { }

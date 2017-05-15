@@ -15,6 +15,7 @@ import { CollapseModule } from 'ng2-bootstrap/collapse';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { ProfileFormComponent } from './shared/profile-form/profile-form.component';
 import { AvatarComponent } from './shared/avatar/avatar.component';
+import { ModalModule } from 'ng2-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AvatarComponent } from './shared/avatar/avatar.component';
     ProfileModule,
     AdminModule,
     ServicesModule,
-    CollapseModule.forRoot()
+    CollapseModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
