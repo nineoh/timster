@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './registration.component.html'
 })
 export class RegistrationComponent implements OnInit {
-  private _avatarUrl = '';
+  private _avatarUrl = 'https://placehold.it/200x200';
 
   constructor(private clientService: ClientsService) { }
 

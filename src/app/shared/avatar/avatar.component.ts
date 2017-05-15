@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDirective } from 'ng2-bootstrap/modal';
 import { ClientsService } from './../../services/client/clients.service';
@@ -10,11 +10,10 @@ import { IClient } from './../../services/client/client.model';
   styleUrls: ['./avatar.component.scss']
 })
 export class AvatarComponent implements OnInit {
+  @Input() avatarUrl: string;
   @Output() submitAvatar: EventEmitter<string> = new EventEmitter();
   @ViewChild('childModal') public childModal: ModalDirective;
 
-  private _isEditMode = false;
-  private _avatarUrl = 'https://graph.facebook.com/691850668/picture?width=200&height=200';
   avatarForm: FormGroup;
 
   constructor(private _formBuilder: FormBuilder) {
@@ -35,9 +34,9 @@ export class AvatarComponent implements OnInit {
   }
 
   public onSubmit($event): void {
-    this._avatarUrl = this.avatarForm.controls.avatarUrl.value;
+    this.avatarUrl = this.avatarForm.controls.avatarUrl.value;
 
-    this.submitAvatar.emit(this._avatarUrl);
+    this.submitAvatar.emit(this.avatarUrl);
     this.childModal.hide();
   }
 
