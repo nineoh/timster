@@ -1,3 +1,4 @@
+import { ClientSession } from './../../services/client/client.session';
 import { Router } from '@angular/router';
 import { IClient, ICredentials } from './../../services/client/client.model';
 import { ClientsService } from './../../services/client/clients.service';
@@ -9,10 +10,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  formData: ICredentials = {username:'' , password: ''};
+  formData: ICredentials = {username: '' , password: ''};
 
-  constructor(private clientServive: ClientsService , 
-  private router: Router) { }
+  constructor(private clientServive: ClientsService ,
+  private clientSession: ClientSession,
+   private router: Router) { }
 
   ngOnInit() {
     // load the existin loaded user from the indexdb
@@ -23,6 +25,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (client: IClient) => {
           console.log('LoginComponent.login' , client);
+          this.clientSession.setClient(client);
           this.router.navigate(['profile']);
         },
         (error: any) => console.error('LoginComponent.error', error) );

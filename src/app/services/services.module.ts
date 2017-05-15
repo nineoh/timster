@@ -1,3 +1,4 @@
+import { ClientSession } from './client/client.session';
 import { AvatarUploadService } from './avatar-upload/avatar-upload.service';
 import { ClientsService } from './client/clients.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,7 +11,8 @@ import {NotesService} from './notes/notes.service';
   providers: [
       ClientsService,
       NotesService,
-      AvatarUploadService
+      AvatarUploadService,
+      ClientSession
     ]
 })
 export class ServicesModule { }
