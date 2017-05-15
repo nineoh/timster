@@ -1,5 +1,5 @@
 <div class="tim-avatar">
-  <img src="{{_avatarUrl}}" alt="avatar" class="img-circle img-responsive">
+  <img src="{{avatarUrl}}" alt="avatar" class="img-circle img-responsive">
   <div class="avatar-overlay text-center" (click)="showChildModal()">
     <i class="fa fa-pencil fa-3x"></i>
   </div>
@@ -18,7 +18,7 @@
           <form [formGroup]="avatarForm" action="index.html" method="post" (ngSubmit)="onSubmit()">
             <div class="form-group">
               <label for="avatarUrl">Add an image URL</label>
-              <input type="text" placeholder="https://graph.facebook.com/691850668/picture?width=200&height=200" name="avatarUrl" class="form-control" formControlName="avatarUrl">
+              <input type="text" placeholder="{{avatarUrl}}" name="avatarUrl" class="form-control" formControlName="avatarUrl">
             </div>
 
             <button type="button" name="button" class="btn" (click)="avatarForm.reset(); hideChildModal()">Cancel</button>
