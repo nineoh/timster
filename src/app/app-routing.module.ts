@@ -9,7 +9,8 @@ import { RegistrationComponent } from './pages/registration/registration.compone
 const appRoutes: Routes = [
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [HasSession]
   },
   {
     path: 'registration',
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
   {
     path: '',
     redirectTo: '/home',
+    canActivate: [HasSession],
     pathMatch: 'full'
   }
   // { path: '**', component: PageNotFoundComponent }
