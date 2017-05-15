@@ -1,5 +1,6 @@
-import { NgModule }              from '@angular/core';
-import { RouterModule, Routes }  from '@angular/router';
+import { HasSession } from './pages/profile/hassession.guard';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -12,7 +13,8 @@ const appRoutes: Routes = [
   },
   {
     path: 'registration',
-    component: RegistrationComponent
+    component: RegistrationComponent,
+    canActivate: [HasSession],
   },
   {
     path: 'login',

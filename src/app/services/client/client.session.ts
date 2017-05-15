@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { IClient } from './client.model';
 
 @Injectable()
-export class ClientSession{
+export class ClientSession { 
     private client: IClient;
 
     setClient(client) {
         this.client = client;
     }
 
-    getClient(client): IClient {
+    getClient(): IClient {
         return this.client;
     }
 

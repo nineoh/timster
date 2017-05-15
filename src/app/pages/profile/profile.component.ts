@@ -1,3 +1,4 @@
+import { ClientSession } from './../../services/client/client.session';
 import { IClient } from './../../services/client/client.model';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -10,11 +11,11 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
   client: IClient;
 
-  constructor( private route: ActivatedRoute) { }
+  constructor( private route: ActivatedRoute , private clientSession: ClientSession) { }
 
   ngOnInit() {
     // fetch the data from the route 
     this.route.data
-      .subscribe( (data: {client: IClient}) => this.client = data.client );
+      .subscribe( (data: {client: IClient}) => this.client = data.client);
   }
 }

@@ -1,3 +1,4 @@
+import { HasSession } from './hassession.guard';
 import { ClientsService } from './../../services/client/clients.service';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -9,6 +10,7 @@ const routes: Routes = [
 {
   path: 'profile',
   component: ProfileComponent,
+  canActivate: [HasSession],
   resolve: {client: ProfileResolver}
 },
 ];
@@ -18,6 +20,6 @@ const routes: Routes = [
     RouterModule.forChild(routes)
     ],
   exports: [RouterModule],
-  providers: [ClientsService, ProfileResolver ]
+  providers: [ClientsService, ProfileResolver, HasSession ]
 })
 export class ProfileRoutingModule { }
