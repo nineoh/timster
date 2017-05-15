@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { IClient } from './../../services/client/client.model';
+import { Component, OnInit,  Output , EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -7,12 +8,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./profile-form.component.scss']
 })
 export class ProfileFormComponent implements OnInit {
+  @Output() submitRegistration: EventEmitter<IClient> = new EventEmitter();
   profileForm: FormGroup;
 
   constructor(private _formBuilder: FormBuilder) {
     this.profileForm = _formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      first: ['', Validators.required],
+      last: ['', Validators.required],
       username: ['', Validators.required],
       passwords: _formBuilder.group({
         password: ['', [Validators.required, Validators.minLength(8)]],
@@ -26,6 +28,13 @@ export class ProfileFormComponent implements OnInit {
 
   onSubmit() {
     console.log('Form Submitted', JSON.stringify(this.profileForm.value));
+    let formData = Object.assign( this.profileForm.value);
+    formData.password = formData.passwords.password;
+
+    delete formData.passwords;
+
+    this.submitRegistration.emit(formData);
+
     this.profileForm.reset();
   }
 

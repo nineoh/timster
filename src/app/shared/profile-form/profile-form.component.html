@@ -4,14 +4,14 @@
     <div class="col-md-6">
       <div class="form-group" [ngClass]="{'has-error': profileForm.get('firstName')?.touched && profileForm.get('firstName')?.invalid}">
         <label for="firstName">First Name*</label>
-        <input type="text" name="firstName" value="" class="form-control" formControlName="firstName">
+        <input type="text" name="first" value="" class="form-control" formControlName="first">
         <span *ngIf="profileForm.get('firstName')?.touched && profileForm.get('firstName')?.invalid" class="help-block">Field is required.</span>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group" [ngClass]="{'has-error': profileForm.get('lastName')?.touched && profileForm.get('lastName')?.invalid}">
         <label for="lastName">Last Name*</label>
-        <input type="text" name="lastName" value="" class="form-control" formControlName="lastName">
+        <input type="text" name="last" value="" class="form-control" formControlName="last">
         <span *ngIf="profileForm.get('lastName')?.touched && profileForm.get('lastName')?.invalid" class="help-block">Field is required.</span>
       </div>
     </div>
