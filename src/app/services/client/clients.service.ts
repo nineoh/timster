@@ -5,14 +5,14 @@ import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
-const CLIENT_ENDPOINT = `${environment.endpoint}api/clients`;
+export const CLIENT_ENDPOINT = `${environment.endpoint}api/clients`;
 
 @Injectable()
 export class ClientsService {
 
   constructor(private http: Http) { }
 
-  login(credentials: ICredentials): Observable<IClient> {   
+  login(credentials: ICredentials): Observable<IClient> {
 
       return this.http.post(`${CLIENT_ENDPOINT}/login` , credentials)
         .map( (resp: Response) => resp.json() )
@@ -35,7 +35,7 @@ export class ClientsService {
     return this.http
       .post(CLIENT_ENDPOINT, client)
       .map( (response: Response) => {
-        console.log('Client add response', response.json());
+        console.log('Client add response', response.json()); 
         return response.json();
        })
        .catch( (error: any) => {
