@@ -38,8 +38,7 @@ describe('Service', () => describe('Clients', () => {
             expect(connection.request.url).toBe(CLIENT_ENDPOINT);
             connection.mockRespond(new Response( new ResponseOptions({body: listMockResponse }) ));
         });
-
-    
+        
         clientService.add(newClient).subscribe( client => expect(client).toBeDefined() );
         tick();
     }));
