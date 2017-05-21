@@ -30,6 +30,9 @@ export class ProfileComponent implements OnInit {
   submitForm($event: IClient) {
     $event.avatar = this.client.avatar;
     console.log('RegistrationComponent.submitForm', $event);
-    this.clientService.update($event).subscribe( (client: IClient) => this.client = client);
+    this.clientService.update($event).subscribe( (client: IClient) => {
+      this.clientSession.setClient(client);
+      this.client = client;
+    });
   }
 }
