@@ -6,12 +6,11 @@
 
 <div class="row">
   <div class="col-md-8">
-    <h2>Profildaten</h2>
+    <h2>Profildaten anpassen</h2>
     <tim-profile-form [client]="client" (submitRegistration)="submitForm($event)"></tim-profile-form>      
   </div>
-  
   <div class="col-md-4">
-    <tim-avatar [avatarUrl]="client?.avatar"></tim-avatar>
+    <tim-avatar [avatarUrl]="client?.avatar" (submitAvatar)="addAvatar($event)"></tim-avatar>
   </div>
 
 </div>

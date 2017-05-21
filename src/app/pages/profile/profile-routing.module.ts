@@ -9,7 +9,7 @@ const routes: Routes = [
 {
   path: 'profile',
   component: ProfileComponent,
-  //canActivate: [HasSession],
+  canActivate: [HasSession],
   resolve: {client: ProfileResolver}
 },
 ];

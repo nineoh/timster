@@ -1,5 +1,5 @@
 import { IClient } from './../../services/client/client.model';
-import { Component, OnInit,  Output , EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,42 +8,46 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./profile-form.component.scss']
 })
 export class ProfileFormComponent implements OnInit {
+  @Input() client: IClient;
   @Output() submitRegistration: EventEmitter<IClient> = new EventEmitter();
   profileForm: FormGroup;
 
   constructor(private _formBuilder: FormBuilder) {
-    this.profileForm = _formBuilder.group({
-      first: ['', Validators.required],
-      last: ['', Validators.required],
-      username: ['', Validators.required],
-      passwords: _formBuilder.group({
-        password: ['', [Validators.required, Validators.minLength(8)]],
-        retypePassword: ['', [Validators.required, Validators.minLength(8)]],
-      }, {validator: this.matchingPasswords('password', 'retypePassword')})
-    });
   }
 
   ngOnInit() {
+    this.initForm();
   }
 
   onSubmit() {
     console.log('Form Submitted', JSON.stringify(this.profileForm.value));
-    let formData = Object.assign( this.profileForm.value);
+    const formData = Object.assign( this.profileForm.value);
     formData.password = formData.passwords.password;
 
     delete formData.passwords;
 
     this.submitRegistration.emit(formData);
+  }
 
-    this.profileForm.reset();
+  initForm() {
+    this.profileForm = this._formBuilder.group({
+      id: [this.client.id || ''],
+      first: [this.client.first || '', Validators.required],
+      last: [this.client.last || '', Validators.required],
+      username: [this.client.username || '', Validators.required],
+      passwords: this._formBuilder.group({
+        password: [this.client.password || '', [Validators.required, Validators.minLength(8)]],
+        retypePassword: [this.client.password || '', [Validators.required, Validators.minLength(8)]],
+      }, {validator: this.matchingPasswords('password', 'retypePassword')})
+    });
   }
 
   matchingPasswords(passwordKey: string, confirmPasswordKey: string) {
     return (group: FormGroup): {
         [key: string]: any
     } => {
-        let password = group.controls[passwordKey];
-        let confirmPassword = group.controls[confirmPasswordKey];
+        const password = group.controls[passwordKey];
+        const confirmPassword = group.controls[confirmPasswordKey];
 
         if (password.value !== confirmPassword.value) {
             return {

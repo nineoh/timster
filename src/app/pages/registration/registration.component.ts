@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { ClientSession } from './../../services/client/client.session';
 import { IClient } from './../../services/client/client.model';
 import { ClientService } from './../../services/client/client.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,7 +11,9 @@ import { Component, OnInit } from '@angular/core';
 export class RegistrationComponent implements OnInit {
   avatarUrl = 'https://placehold.it/200x200';
 
-  constructor(private clientService: ClientService) { }
+  constructor(private clientService: ClientService,
+              private clientSession: ClientSession,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -22,7 +26,15 @@ export class RegistrationComponent implements OnInit {
   submitForm($event: IClient) {
     $event.avatar = this.avatarUrl;
     console.log('RegistrationComponent.submitForm', $event);
-    this.clientService.add($event).subscribe( (client: IClient) => console.log('RegistrationComponent.added client' , client));
+    this.clientService.add($event).subscribe( (client: IClient) => {
+      console.log('RegistrationComponent.added client' , client);
+
+      // Update client session
+      this.clientSession.setClient(client);
+
+      // Redirect to profile page
+      this.router.navigate(['profile']);
+    });
   }
 
 }
