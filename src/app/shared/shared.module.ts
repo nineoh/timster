@@ -1,3 +1,4 @@
+import { ClientPipe } from './pipes/client.pipe';
 import { RouterModule } from '@angular/router';
 import { CollapseModule } from 'ng2-bootstrap/collapse';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,9 +21,11 @@ import { CommonModule } from '@angular/common';
   declarations: [
     AvatarComponent,
     HeaderComponent,
-    ProfileFormComponent
+    ProfileFormComponent,
+    ClientPipe
   ],
   exports: [
+    ClientPipe,
     AvatarComponent,
     HeaderComponent,
     ProfileFormComponent,
