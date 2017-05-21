@@ -1,3 +1,4 @@
+import { PagesModule } from './pages/pages.module';
 import { HasSession } from './pages/profile/hassession.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes, { useHash: true })
+    RouterModule.forRoot(appRoutes, { useHash: true }),
+    PagesModule
   ],
   exports: [
     RouterModule
