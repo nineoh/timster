@@ -2,15 +2,18 @@
   <div class="col-md-12">
       <h1>{{client?.first}} {{client?.last}}</h1>
   </div>
-</div><!-- /.row -->
+</div>
 
 <div class="row">
   <div class="col-md-8">
-    <h2>Profildaten anpassen</h2>
-    <tim-profile-form [client]="client" (submitRegistration)="submitForm($event)"></tim-profile-form>      
+    <tim-skills [skills]="client?.skills"></tim-skills>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <tim-profile-form [client]="client" [showCancelButton]="false" (submitRegistration)="submitForm($event)"></tim-profile-form>      
   </div>
   <div class="col-md-4">
     <tim-avatar [avatarUrl]="client?.avatar" (submitAvatar)="addAvatar($event)"></tim-avatar>
   </div>
-
 </div>

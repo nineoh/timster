@@ -19,7 +19,12 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     // fetch the data from the route
     this.route.data
-      .subscribe( (data: {client: IClient}) => this.client = data.client);
+      .subscribe( (data: {client: IClient}) => {
+        this.client = data.client;
+        if (!this.client.skills) {
+          this.client.skills = [];
+        }
+      });
   }
 
   addAvatar($event: string) {
@@ -29,6 +34,7 @@ export class ProfileComponent implements OnInit {
 
   submitForm($event: IClient) {
     $event.avatar = this.client.avatar;
+    $event.skills = this.client.skills;
     console.log('RegistrationComponent.submitForm', $event);
     this.clientService.update($event).subscribe( (client: IClient) => {
       this.clientSession.setClient(client);

@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ProfileFormComponent implements OnInit {
   @Input() client: IClient;
+  @Input() showCancelButton = true;
   @Output() submitRegistration: EventEmitter<IClient> = new EventEmitter();
   profileForm: FormGroup;
 
@@ -34,7 +35,7 @@ export class ProfileFormComponent implements OnInit {
 
   initForm() {
     this.profileForm = this._formBuilder.group({
-      id: [''],
+      id: [undefined],
       first: ['', Validators.required],
       last: ['', Validators.required],
       username: ['', Validators.required],

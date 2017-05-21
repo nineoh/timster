@@ -1,5 +1,6 @@
+import { ModalDirective } from 'ng2-bootstrap/modal';
 import { ISkill } from './../../services/client/client.model';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'tim-skills',
@@ -7,24 +8,39 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent implements OnInit {
-  @Input() skills: ISkill[] = [
-    {name: 'Angular 1', level: 3},
-    {name: 'Angular 2', level: 5},
-    {name: 'jQuery', level: 4},
-    {name: 'Sauffen', level: 5},
-    {name: 'Angular 1', level: 3},
-    {name: 'Angular 2', level: 5},
-    {name: 'jQuery', level: 4},
-    {name: 'Sauffen', level: 5},
-    {name: 'Angular 1', level: 3},
-    {name: 'Angular 2', level: 5},
-    {name: 'jQuery', level: 4},
-    {name: 'Sauffen', level: 5}
-  ];
+  @Input() skills: ISkill[];
+  @ViewChild('addSkillModal') addSkillModal: ModalDirective;
+  @ViewChild('focusInput') focusInput: any;
+
+  model: ISkill = {name: undefined, level: 1};
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    this.skills.push({name: this.model.name, level: this.model.level});
+    this.addSkillModal.hide();
+    this.resetForm();
+  }
+
+  onCancel() {
+    this.addSkillModal.hide();
+    this.resetForm();
+  }
+
+  openModal() {
+    this.addSkillModal.show();
+
+    setTimeout(() => { // wait until modal is loaded
+      this.focusInput.nativeElement.focus();
+    }, 500);
+  }
+
+  private resetForm() {
+    this.model.name = '';
+    this.model.level = 1;
   }
 
 }
