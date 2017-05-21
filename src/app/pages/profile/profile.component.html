@@ -11,7 +11,7 @@
   </div>
   
   <div class="col-md-4">
-    <tim-avatar [avatarUrl]="client?.avatar"></tim-avatar>
+    <tim-avatar [avatarUrl]="client?.avatar" (submitAvatar)="addAvatar($event)"></tim-avatar>
   </div>
 
 </div>

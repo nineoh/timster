@@ -1,5 +1,5 @@
 import { IClient } from './../../services/client/client.model';
-import { Component, OnInit, Input,  Output , EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -25,26 +25,35 @@ export class ProfileFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.client) {
+      this.prefillForm();
+    }
   }
 
   onSubmit() {
     console.log('Form Submitted', JSON.stringify(this.profileForm.value));
-    let formData = Object.assign( this.profileForm.value);
+    const formData = Object.assign( this.profileForm.value);
     formData.password = formData.passwords.password;
 
     delete formData.passwords;
 
     this.submitRegistration.emit(formData);
+  }
 
-    this.profileForm.reset();
+  prefillForm() {
+    this.profileForm.get('first').setValue(this.client.first);
+    this.profileForm.get('last').setValue(this.client.last);
+    this.profileForm.get('username').setValue(this.client.username);
+    this.profileForm.get('passwords').get('password').setValue(this.client.password);
+    this.profileForm.get('passwords').get('retypePassword').setValue(this.client.password);
   }
 
   matchingPasswords(passwordKey: string, confirmPasswordKey: string) {
     return (group: FormGroup): {
         [key: string]: any
     } => {
-        let password = group.controls[passwordKey];
-        let confirmPassword = group.controls[confirmPasswordKey];
+        const password = group.controls[passwordKey];
+        const confirmPassword = group.controls[confirmPasswordKey];
 
         if (password.value !== confirmPassword.value) {
             return {

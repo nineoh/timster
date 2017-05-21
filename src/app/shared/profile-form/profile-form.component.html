@@ -4,14 +4,14 @@
     <div class="col-md-6">
       <div class="form-group" [ngClass]="{'has-error': profileForm.get('firstName')?.touched && profileForm.get('firstName')?.invalid}">
         <label for="firstName">First Name*</label>
-        <input type="text" name="first" value="{{client?.first}}" class="form-control" formControlName="first">
+        <input type="text" name="first" value="" class="form-control" formControlName="first">
         <span *ngIf="profileForm.get('firstName')?.touched && profileForm.get('firstName')?.invalid" class="help-block">Field is required.</span>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group" [ngClass]="{'has-error': profileForm.get('lastName')?.touched && profileForm.get('lastName')?.invalid}">
         <label for="lastName">Last Name*</label>
-        <input type="text" name="last" value="{{client?.last}}" class="form-control" formControlName="last">
+        <input type="text" name="last" value="" class="form-control" formControlName="last">
         <span *ngIf="profileForm.get('lastName')?.touched && profileForm.get('lastName')?.invalid" class="help-block">Field is required.</span>
       </div>
     </div>
@@ -19,20 +19,20 @@
 
   <div class="form-group" [ngClass]="{'has-error': profileForm.get('username')?.touched && profileForm.get('username')?.invalid}">
     <label for="username">Username*</label>
-    <input type="text" name="username" value="{{client?.username}}" class="form-control" formControlName="username">
+    <input type="text" name="username" value="" class="form-control" formControlName="username">
     <span *ngIf="profileForm.get('username')?.touched && profileForm.get('username')?.invalid" class="help-block">Field is required.</span>
   </div>
 
   <div formGroupName="passwords">
     <div class="form-group" [ngClass]="{'has-error': profileForm.get('passwords')?.get('password')?.touched && profileForm.get('passwords')?.get('password')?.invalid}">
       <label for="password">Password*</label>
-      <input type="password" name="password" value="{{client?.password}}" class="form-control" formControlName="password" placeholder="requires min 8 characters">
+      <input type="password" name="password" value="" class="form-control" formControlName="password" placeholder="requires min 8 characters">
       <span *ngIf="profileForm.get('passwords')?.get('password')?.touched && profileForm.get('passwords')?.get('password')?.invalid" class="help-block">Password requires min 8 characters.</span>
     </div>
 
     <div class="form-group" [ngClass]="{'has-error': (profileForm.get('passwords')?.get('retypePassword')?.touched && profileForm.get('passwords')?.get('retypePassword')?.invalid) || (profileForm.get('passwords')?.touched && profileForm.get('passwords')?.invalid)}">
       <label for="retypePassword">Retype Password*</label>
-      <input type="password" name="retypePassword" value="{{client?.password}}" class="form-control" formControlName="retypePassword" placeholder="requires min 8 characters">
+      <input type="password" name="retypePassword" value="" class="form-control" formControlName="retypePassword" placeholder="requires min 8 characters">
       <span *ngIf="profileForm.get('passwords')?.get('retypePassword')?.touched && profileForm.get('passwords')?.get('retypePassword')?.invalid" class="help-block">Password requires min 8 characters.</span>
       <span *ngIf="profileForm.get('passwords')?.touched && profileForm.get('passwords')?.invalid" class="help-block">Passwords must match.</span>      
    </div>
@@ -40,7 +40,7 @@
 
   <div class="form-group">
     <button [disabled]="profileForm.pristine" type="button" name="button" class="btn" (click)="profileForm.reset()">Cancel</button>
-    <button type="submit" name="button" class="btn btn-primary">Submit</button>
+    <button [disabled]="profileForm.invalid" type="submit" name="button" class="btn btn-primary">Submit</button>
   </div>
 
   <!--<p>Password length: {{profileForm.get('passwords').get('password').value.length}}</p>-->
