@@ -1,5 +1,5 @@
 import { IClient } from './client.model';
-import { ClientsService } from './clients.service';
+import { ClientsService } from './client.service';
 /**
  * Mock data for the ClientsService
  */

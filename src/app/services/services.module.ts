@@ -1,5 +1,5 @@
 import { ClientSession } from './client/client.session';
-import { ClientsService } from './client/clients.service';
+import { ClientsService } from './client/client.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';

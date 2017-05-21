@@ -1,2 +1,2 @@
 export * from './client.model';
-export * from './clients.service';
+export * from './client.service';

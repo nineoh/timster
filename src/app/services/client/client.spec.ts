@@ -1,7 +1,7 @@
 import { IClient } from './client.model';
 import { listMockResponse, addMockResponse } from './client.mock.spec';
 import { HttpModule, Response, ResponseOptions, XHRBackend } from '@angular/http';
-import { ClientsService, CLIENT_ENDPOINT } from './clients.service';
+import { ClientsService, CLIENT_ENDPOINT } from './client.service';
 import { ClientSession } from './client.session';
 import { inject, TestBed , tick, fakeAsync} from '@angular/core/testing';
 import {MockBackend} from '@angular/http/testing';
@@ -33,7 +33,7 @@ describe('Service', () => describe('Clients', () => {
         expect(clientService).toBeDefined();
     });
 
-    const shouldAddClient = fakeAsync( inject([ClientsService, XHRBackend], (clientService:ClientsService, backend: MockBackend) => {
+    const shouldAddClient = fakeAsync( inject([ClientsService, XHRBackend], (clientService: ClientsService, backend: MockBackend) => {
          backend.connections.subscribe((connection) => {
             expect(connection.request.url).toBe(CLIENT_ENDPOINT);
             connection.mockRespond(new Response( new ResponseOptions({body: listMockResponse }) ));
@@ -43,8 +43,7 @@ describe('Service', () => describe('Clients', () => {
         tick();
     }));
 
-    const shouldAddError = fakeAsync( inject([ClientsService , XHRBackend] , (clientService: ClientsService , backend: MockBackend) =>{
- // Test the error case
+    const shouldAddError = fakeAsync( inject([ClientsService , XHRBackend] , (clientService: ClientsService , backend: MockBackend) => {
         backend.connections.subscribe((connection) => {
             connection.mockError(new Error('no user found'));
         });
