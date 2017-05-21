@@ -1,5 +1,5 @@
 import { IClient } from './../../services/client/client.model';
-import { Component, OnInit,  Output , EventEmitter } from '@angular/core';
+import { Component, OnInit, Input,  Output , EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./profile-form.component.scss']
 })
 export class ProfileFormComponent implements OnInit {
+  @Input() client: IClient;
   @Output() submitRegistration: EventEmitter<IClient> = new EventEmitter();
   profileForm: FormGroup;
 

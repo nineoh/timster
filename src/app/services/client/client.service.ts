@@ -44,6 +44,11 @@ export class ClientService {
        });
   }
 
+  update(client: IClient): Observable<IClient> {
+    // TODO: implement
+    return new Observable<IClient>();
+  }
+
   updateSkill(skill: ISkill): Observable<IClient>{
     console.log('ClientService.updateSkill');
     return Observable.of();
