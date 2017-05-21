@@ -4,6 +4,14 @@
     margin-top: 2rem;
     margin-bottom: 4rem;
 
+    .skill-item:hover > button {
+        visibility: visible !important;
+    }
+
+    .invisible {
+        visibility: hidden !important;
+    }
+
     .flex-box {
         display: flex;
         flex-flow: row wrap;

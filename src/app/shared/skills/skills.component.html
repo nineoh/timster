@@ -4,7 +4,10 @@
   <div class="flex-box">
     <div class="flex-item">
     </div>
-    <div class="flex-item" *ngFor="let skill of skills"><span class="item-size-{{skill?.level}}">{{skill?.name}}</span></div>
+    <div class="flex-item skill-item" *ngFor="let skill of skills">
+      <span class="item-size-{{skill?.level}}">{{skill?.name}}</span>
+      <button type="button" class="btn btn-danger btn-xs invisible" (click)="removeSkill(skill)"><i class="fa fa-trash"></i></button>
+    </div>
   </div>
 
   <div bsModal #addSkillModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
@@ -17,7 +20,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form #skillForm="ngForm" class="form-inline" method="post" (ngSubmit)="onSubmit()">
+          <form #skillForm="ngForm" class="form-inline" method="post" (ngSubmit)="addSkill()">
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">

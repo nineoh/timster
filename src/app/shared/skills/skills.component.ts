@@ -19,10 +19,17 @@ export class SkillsComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
+  addSkill() {
     this.skills.push({name: this.model.name, level: this.model.level});
     this.addSkillModal.hide();
     this.resetForm();
+  }
+
+  removeSkill(skill) {
+    const index = this.skills.indexOf(skill);
+    if (index > -1) {
+      this.skills.splice(index, 1);
+    }
   }
 
   onCancel() {
