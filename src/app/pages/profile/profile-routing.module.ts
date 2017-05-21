@@ -9,7 +9,7 @@ const routes: Routes = [
 {
   path: 'profile',
   component: ProfileComponent,
-  canActivate: [HasSession],
+  //canActivate: [HasSession],
   resolve: {client: ProfileResolver}
 },
 ];
@@ -19,6 +19,6 @@ const routes: Routes = [
     RouterModule.forChild(routes)
     ],
   exports: [RouterModule],
-  providers: [ProfileResolver, HasSession ]
+  providers: [ProfileResolver ]
 })
 export class ProfileRoutingModule { }

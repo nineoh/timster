@@ -44,9 +44,10 @@ export class ClientService {
        });
   }
 
-  updateSkill(skill: ISkill): Observable<IClient>{
+  update(client: IClient): Observable<IClient> {
     console.log('ClientService.updateSkill');
-    return Observable.of();
+    const url: string = `${CLIENT_ENDPOINT}/${client['id']}`;
+    return this.http.put(url , client ).map( (response: Response) => <IClient>response.json() );
   }
 
   /**
@@ -58,5 +59,4 @@ export class ClientService {
         last: 'TEST'
     });
   }
-
 }
