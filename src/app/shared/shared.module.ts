@@ -1,3 +1,4 @@
+import { ClientPipe } from './pipes/client.pipe';
 import { RouterModule } from '@angular/router';
 import { CollapseModule } from 'ng2-bootstrap/collapse';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -22,9 +23,11 @@ import { SkillsComponent } from './skills/skills.component';
     AvatarComponent,
     HeaderComponent,
     ProfileFormComponent,
-    SkillsComponent
+    SkillsComponent,
+    ClientPipe
   ],
   exports: [
+    ClientPipe,
     AvatarComponent,
     HeaderComponent,
     ProfileFormComponent,

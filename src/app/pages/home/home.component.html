@@ -1,7 +1,16 @@
-<h1>Home</h1>
+<div class="row">
+    <div class="col-md-8">
+        <h1>Home</h1>
+    </div>
+    <div class="col-md-4">
+        <input type="query" [(ngModel)]="model" class="pull-right">
+        <h4 class="pull-right">Filter: </h4>
+    </div>
+</div>
+
 <div class="list-group">
     
-    <div *ngFor="let client of clients| async" class="list-group-item">
+    <div *ngFor="let client of clients| client$:model | async" class="list-group-item">
         <h4>{{client.first}}</h4>
         <p>{{client.last}}</p>
     </div>
