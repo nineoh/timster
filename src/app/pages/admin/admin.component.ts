@@ -1,6 +1,6 @@
 import { AdminModule } from './admin.module';
 import { IClient } from './../../services/client/client.model';
-import { ClientsService } from './../../services/client/clients.service';
+import { ClientsService } from './../../services/client/client.service';
 import { Component } from '@angular/core';
 
 @Component({
