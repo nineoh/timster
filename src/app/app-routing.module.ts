@@ -13,10 +13,10 @@ const appRoutes: Routes = [
     component: HomeComponent,
     canActivate: [HasSession]
   },
-  {
+  /*{
     path: 'registration',
     component: RegistrationComponent
-  },
+  },*/
   {
     path: 'login',
     component: LoginComponent
@@ -35,6 +35,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { useHash: true }),
     PagesModule
   ],
+  providers: [HasSession],
   exports: [
     RouterModule
   ]

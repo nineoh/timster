@@ -13,9 +13,9 @@ export class HasSession implements CanActivate {
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): Observable<boolean>|boolean {
         console.log('HasSession.canActivate' , this.clientSession.hasClient());
-        if(this.clientSession.hasClient()){
+        if (this.clientSession.hasClient()) {
             return true;
-        }else{
+        }else {
             this.router.navigate(['login']);
             return false;
         }
