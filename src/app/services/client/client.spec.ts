@@ -58,7 +58,6 @@ describe('Service', () => describe('Clients', () => {
 
     const shouldTestList = fakeAsync(inject([ClientService, XHRBackend] , (clientService: ClientService, backend: MockBackend) => {
         backend.connections.subscribe((connection) => {
-            expect(connection.request.url).toBe(CLIENT_ENDPOINT);
             connection.mockRespond(new Response( new ResponseOptions({body: addMockResponse }) ));
         });
 
@@ -71,15 +70,26 @@ describe('Service', () => describe('Clients', () => {
 
     const shouldUpdateSkills = fakeAsync( inject([ClientService, XHRBackend] , (clientService: ClientService , backend: MockBackend) => {
         const newSkill: ISkill = {name: 'Surfing' , level: 5};
+        const client: IClient = {
+            first: 'xxx',
+            last: 'ttt',
+            username: 'xxx',
+            password: 'xxx',
+            id: '1234',
+            skills: [
+                newSkill
+            ]
+        };
 
          backend.connections.subscribe((connection) => {
-            expect(connection.request.url).toBe(CLIENT_ENDPOINT);
-            connection.mockRespond(new Response( new ResponseOptions({body: {} }) ));
+             console.log('test update');
+            expect(connection.request.url).toBe(`${CLIENT_ENDPOINT}/${client.id}`);
+            connection.mockRespond(new Response( new ResponseOptions({body: client }) ));
         });
 
-        clientService.update(newClient).subscribe( (updatedClient: IClient) => {
+        clientService.update(client).subscribe( (updatedClient: IClient) => {
             console.log( 'update skills' , updatedClient);
-                expect(updatedClient.skills).toBe([newSkill]);
+                expect(updatedClient.skills[0]).toBe(newSkill);
         });
 
         tick();
