@@ -1,5 +1,4 @@
 import { HasSession } from './hassession.guard';
-import { ClientsService } from './../../services/client/clients.service';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile.component';
@@ -20,6 +19,6 @@ const routes: Routes = [
     RouterModule.forChild(routes)
     ],
   exports: [RouterModule],
-  providers: [ClientsService, ProfileResolver, HasSession ]
+  providers: [ProfileResolver, HasSession ]
 })
 export class ProfileRoutingModule { }

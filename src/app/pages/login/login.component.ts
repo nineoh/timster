@@ -1,7 +1,7 @@
 import { ClientSession } from './../../services/client/client.session';
 import { Router } from '@angular/router';
 import { IClient, ICredentials } from './../../services/client/client.model';
-import { ClientsService } from './../../services/client/clients.service';
+import { ClientService } from './../../services/client/client.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   formData: ICredentials = {username: '' , password: ''};
 
-  constructor(private clientServive: ClientsService ,
+  constructor(private clientServive: ClientService ,
   private clientSession: ClientSession,
    private router: Router) { }
 

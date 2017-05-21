@@ -1,5 +1,5 @@
 import { IClient } from './../../services/client/client.model';
-import { ClientsService } from './../../services/client/clients.service';
+import { ClientService } from './../../services/client/client.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class RegistrationComponent implements OnInit {
   avatarUrl = 'https://placehold.it/200x200';
 
-  constructor(private clientService: ClientsService) { }
+  constructor(private clientService: ClientService) { }
 
   ngOnInit() {
   }

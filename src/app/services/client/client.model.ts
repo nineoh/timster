@@ -3,6 +3,7 @@ export interface IClient {
     last: string;
     username: string;
     password: string;
+    id?: string;
     skills?: ISkill[];
     avatar?: string;
     profile?: string;

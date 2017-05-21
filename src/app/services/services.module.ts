@@ -1,5 +1,5 @@
 import { ClientSession } from './client/client.session';
-import { ClientsService } from './client/clients.service';
+import { ClientService } from './client/client.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -8,7 +8,7 @@ import { NotesService } from './notes/notes.service';
 
 @NgModule({
   providers: [
-      ClientsService,
+      ClientService,
       NotesService,
       ClientSession,
       NotesService

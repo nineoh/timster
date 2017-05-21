@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDirective } from 'ng2-bootstrap/modal';
-import { ClientsService } from './../../services/client/clients.service';
+import { ClientService } from './../../services/client/client.service';
 import { IClient } from './../../services/client/client.model';
 
 @Component({
