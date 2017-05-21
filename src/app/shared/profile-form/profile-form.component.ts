@@ -13,10 +13,13 @@ export class ProfileFormComponent implements OnInit {
   profileForm: FormGroup;
 
   constructor(private _formBuilder: FormBuilder) {
+    this.initForm();
   }
 
   ngOnInit() {
-    this.initForm();
+    if (this.client) {
+      this.prefillForm();
+    }
   }
 
   onSubmit() {
@@ -31,15 +34,24 @@ export class ProfileFormComponent implements OnInit {
 
   initForm() {
     this.profileForm = this._formBuilder.group({
-      id: [this.client.id || ''],
-      first: [this.client.first || '', Validators.required],
-      last: [this.client.last || '', Validators.required],
-      username: [this.client.username || '', Validators.required],
+      id: [''],
+      first: ['', Validators.required],
+      last: ['', Validators.required],
+      username: ['', Validators.required],
       passwords: this._formBuilder.group({
-        password: [this.client.password || '', [Validators.required, Validators.minLength(8)]],
-        retypePassword: [this.client.password || '', [Validators.required, Validators.minLength(8)]],
+        password: ['', [Validators.required, Validators.minLength(8)]],
+        retypePassword: ['', [Validators.required, Validators.minLength(8)]],
       }, {validator: this.matchingPasswords('password', 'retypePassword')})
     });
+  }
+
+  prefillForm() {
+    this.profileForm.get('id').setValue(this.client.id);
+    this.profileForm.get('first').setValue(this.client.first);
+    this.profileForm.get('last').setValue(this.client.last);
+    this.profileForm.get('username').setValue(this.client.username);
+    this.profileForm.get('passwords').get('password').setValue(this.client.password);
+    this.profileForm.get('passwords').get('retypePassword').setValue(this.client.password);
   }
 
   matchingPasswords(passwordKey: string, confirmPasswordKey: string) {
