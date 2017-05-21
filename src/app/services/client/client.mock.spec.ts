@@ -1,7 +1,7 @@
 import { IClient } from './client.model';
-import { ClientsService } from './client.service';
+import { ClientService } from './client.service';
 /**
- * Mock data for the ClientsService
+ * Mock data for the ClientService
  */
 export const listMockResponse: IClient[] = [{
     first: 'First User',

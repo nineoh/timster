@@ -1,4 +1,4 @@
-import { IClient, ICredentials } from './client.model';
+import { IClient, ICredentials, ISkill } from './client.model';
 import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import {Http, Response} from '@angular/http';
@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 export const CLIENT_ENDPOINT = `${environment.endpoint}api/clients`;
 
 @Injectable()
-export class ClientsService {
+export class ClientService {
 
   constructor(private http: Http) { }
 
@@ -17,7 +17,7 @@ export class ClientsService {
       return this.http.post(`${CLIENT_ENDPOINT}/login` , credentials)
         .map( (resp: Response) => resp.json() )
         .switchMap( (arr: IClient[]) =>  {
-            console.log('ClientsService.login' , arr);
+            console.log('ClientService.login' , arr);
             return arr.length ? Observable.of(arr[0]) : Observable.throw( {} );
         })
         .catch( (error: any) => Observable.throw(error) );
@@ -39,9 +39,14 @@ export class ClientsService {
         return response.json();
        })
        .catch( (error: any) => {
-        console.error('ClientsService.add' , error);
+        console.error('ClientService.add' , error);
          return Observable.throw(error);
        });
+  }
+
+  updateSkill(skill: ISkill): Observable<IClient>{
+    console.log('ClientService.updateSkill');
+    return Observable.of();
   }
 
   /**
