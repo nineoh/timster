@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { AvatarComponent } from './avatar/avatar.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SkillsComponent } from './skills/skills.component';
 
 @NgModule({
   imports: [
@@ -20,14 +21,16 @@ import { CommonModule } from '@angular/common';
   declarations: [
     AvatarComponent,
     HeaderComponent,
-    ProfileFormComponent
+    ProfileFormComponent,
+    SkillsComponent
   ],
   exports: [
     AvatarComponent,
     HeaderComponent,
     ProfileFormComponent,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SkillsComponent
   ]
 })
 export class SharedModule { }

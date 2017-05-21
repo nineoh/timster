@@ -1,0 +1,39 @@
+.tim-skills {
+    .flex-box {
+        display: flex;
+        flex-flow: row wrap;
+
+        .flex-item {
+            padding: 0 2rem;
+            color: #999;
+        }
+    }
+
+    .item-size-1 {
+        font-size: 1rem;
+    }
+    
+    .item-size-2 {
+        font-size: 2rem;
+    }
+    
+    .item-size-3 {
+        font-size: 3rem;
+    }
+    
+    .item-size-4 {
+        font-size: 4rem;
+    }
+    
+    .item-size-5 {
+        font-size: 5rem;
+    }
+    
+    // ul {
+    //     list-style-type: none;
+
+    //     li {
+    //         float: left;
+    //     }
+    // }
+}

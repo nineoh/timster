@@ -1,0 +1,27 @@
+<div class="tim-skills">
+
+  <div class="flex-box">
+    <div class="flex-item">
+    </div>
+    <div class="flex-item" *ngFor="let skill of skills"><span class="item-size-{{skill?.level}}">{{skill?.name}}</span></div>
+  </div>
+
+  <hr>
+
+  <h3>Add new skill</h3>
+  <form class="form-inline">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="New Skill">
+      <select class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <button type="submit" class="btn btn-default"><i class="fa fa-plus"></i></button>
+    </div>
+  </form>
+  <hr>
+
+</div>
