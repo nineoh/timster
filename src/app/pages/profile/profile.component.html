@@ -1,16 +1,17 @@
 <div class="row">
   <div class="col-md-12">
       <h1>{{client?.first}} {{client?.last}}</h1>
-      {{client|json}}
-  </div>
-  <div class="col-md-4">
-    <img src="{{client?.avatar}}" alt="Avatar" class="img-circle img-responsive">
   </div>
 </div><!-- /.row -->
 
 <div class="row">
-  <div class="col-md-16 col-md-offset-3">
-    <h2>Profildaten anpassen</h2>
-    <!--<tim-profile-form (submitRegistration)="submitForm($event)"></tim-profile-form>      -->
+  <div class="col-md-8">
+    <h2>Profildaten</h2>
+    <tim-profile-form [client]="client" (submitRegistration)="submitForm($event)"></tim-profile-form>      
   </div>
+  
+  <div class="col-md-4">
+    <tim-avatar [avatarUrl]="client?.avatar"></tim-avatar>
+  </div>
+
 </div>

@@ -1,7 +1,8 @@
 <h1>Home</h1>
 <div class="list-group">
-    <div *ngFor="let note of notes" class="list-group-item">
-        <h4>{{note.title}}</h4>
-        <p>{{note.content}}</p>
+    
+    <div *ngFor="let client of clients| async" class="list-group-item">
+        <h4>{{client.first}}</h4>
+        <p>{{client.last}}</p>
     </div>
 </div>

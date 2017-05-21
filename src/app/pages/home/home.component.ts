@@ -1,5 +1,6 @@
+import { ClientService , IClient} from './../../services/client';
+import { Observable } from 'rxjs/Rx';
 import { Component, OnInit } from '@angular/core';
-import {NotesService} from '../../services/notes/notes.service'
 
 @Component({
   selector: 'tim-home',
@@ -7,14 +8,20 @@ import {NotesService} from '../../services/notes/notes.service'
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  notes: any;
+  clients: Observable<IClient[]>;
 
-  constructor(private notesService: NotesService) { }
+  constructor(private clientService: ClientService) { }
 
   ngOnInit() {
-      this.notesService.list().subscribe( (data: any) => {
-          this.notes = data;
-      });
+      this.clients = this.clientService.list();
   }
 
+  filter(query: string): Observable<IClient[]> {
+    return this.clients.map( (clients: IClient[]) => {
+        return clients.filter( (value: IClient) => {
+            console.log('query', query);
+            return value.last === query;
+        });
+    });
+  }
 }

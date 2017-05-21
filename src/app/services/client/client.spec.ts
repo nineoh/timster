@@ -87,11 +87,7 @@ describe('Service', () => describe('Clients', () => {
             connection.mockRespond(new Response( new ResponseOptions({body: client }) ));
         });
 
-        clientService.update(client).subscribe( (updatedClient: IClient) => {
-            console.log( 'update skills' , updatedClient);
-                expect(updatedClient.skills[0]).toBe(newSkill);
-        });
-
+        clientService.update(client).subscribe( (updatedClient: IClient) => expect(updatedClient.skills[0]).toBe(newSkill));
         tick();
     }));
 
