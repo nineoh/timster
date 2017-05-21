@@ -1,40 +1,52 @@
 <div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login()">
+        <h2 class="form-signin-heading">Please sign in</h2>
 
-  <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login()">
-    <h2 class="form-signin-heading">Please sign in</h2>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="inputEmail" class="sr-only">Username</label>
+              <input type="email" id="inputEmail" name="username" [(ngModel)]="formData.username" class="form-control" placeholder="Username"
+                required autofocus>
+            </div>
+          </div>
 
-    <div class="row">
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" 
-      name="username"
-      [(ngModel)]="formData.username"
-      class="form-control" 
-      placeholder="Email address" required autofocus>
-    </div>
+        </div>
 
-    <div class="row">
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" 
-      name="password"
-      [(ngModel)]="formData.password"
-      class="form-control" 
-      placeholder="Password" required>
-    </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="inputPassword" class="sr-only">Password</label>
+              <input type="password" id="inputPassword" name="password" [(ngModel)]="formData.password" class="form-control" placeholder="Password"
+                required>
+            </div>
+          </div>
+        </div>
 
-    <div class="row">
-      <div class="checkbox">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <!--<div class="checkbox">
+                <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+                </label>
+              </div>-->
+              <button class="btn btn-lg btn-primary btn-block" (click)="login()" type="submit">Sign in</button>
+            </div>
+          </div>
+        </div>
+
+      </form>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" 
-    (click)="login()"
-    type="submit">Sign in</button>
-    </div>
-    
-  </form>
+  </div>
+
 
   <div class="row">
-    <a routerLink="/registration">Register</a>
+    <div class="col-md-6 col-md-offset-3">
+      <a routerLink="/registration">Register</a>
+    </div>
   </div>
-</div> <!-- /container -->
+</div>
+<!-- /container -->
