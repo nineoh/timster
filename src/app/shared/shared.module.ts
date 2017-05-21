@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { CollapseModule } from 'ng2-bootstrap/collapse';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ng2-bootstrap/modal';
@@ -13,7 +14,8 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     FormsModule,
     ModalModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule,
   ],
   declarations: [
     AvatarComponent,
