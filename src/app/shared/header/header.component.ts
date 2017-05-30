@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ClientSession } from './../../services/client/client.session';
+import { IClient } from './../../services/client/client.model';
+import { Component, OnInit, DoCheck } from '@angular/core';
 
 @Component({
   selector: 'tim-header',
@@ -6,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isCollapsed: boolean = true;
+  isCollapsed = true;
+  client: IClient;
 
-  constructor() { }
+  constructor(private clientSession: ClientSession) { }
 
   ngOnInit() {
+    this.clientSession.client$.subscribe( (client: IClient) => this.client = client );
   }
 
   close(event: Event): void {
