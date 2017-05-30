@@ -13,6 +13,9 @@
     <div id="navbar" class="navbar-collapse" [collapse]="isCollapsed">
       <ul class="nav navbar-nav" (click)="close($event)">
         <li routerLinkActive="active"><a routerLink="/home">Home</a></li>
+      </ul>
+      <tim-header-user></tim-header-user>
+      <ul class="nav navbar-nav navbar-right" style="display: none">
         <li routerLinkActive="active"><a routerLink="/login">Log In</a></li>
         <li routerLinkActive="active"><a routerLink="/profile">Profile</a></li>
       </ul>

@@ -16,4 +16,8 @@ export class ClientSession {
     hasClient() {
         return typeof this.client !== 'undefined';
     }
+
+    reset(){
+        this.client = undefined;
+    }
 }

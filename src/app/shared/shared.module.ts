@@ -1,3 +1,4 @@
+import { HeaderUserComponent } from './header/header-user/header-user.component';
 import { UserItemComponent } from './user-item/user-item.component';
 import { ClientPipe } from './pipes/client.pipe';
 import { RouterModule } from '@angular/router';
@@ -23,6 +24,7 @@ import { SkillsComponent } from './skills/skills.component';
   declarations: [
     AvatarComponent,
     HeaderComponent,
+    HeaderUserComponent,
     ProfileFormComponent,
     SkillsComponent,
     ClientPipe,

@@ -1,3 +1,4 @@
+import { LogoutUserResolver } from './pages/login/logout.user.resolver';
 import { PagesModule } from './pages/pages.module';
 import { HasSession } from './pages/profile/hassession.guard';
 import { NgModule } from '@angular/core';
@@ -13,14 +14,6 @@ const appRoutes: Routes = [
     component: HomeComponent,
     canActivate: [HasSession]
   },
-  /*{
-    path: 'registration',
-    component: RegistrationComponent
-  },*/
-  {
-    path: 'login',
-    component: LoginComponent
-  },
   {
     path: '',
     redirectTo: '/home',
@@ -35,7 +28,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { useHash: true }),
     PagesModule
   ],
-  providers: [HasSession],
+  providers: [HasSession, LogoutUserResolver],
   exports: [
     RouterModule
   ]

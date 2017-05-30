@@ -1,0 +1,5 @@
+<ul class="nav navbar-nav navbar-right">
+        <!-- <li *ngIf="!client" routerLinkActive="active"><a routerLink="/login">Log In</a></li> -->
+        <li *ngIf="client"  routerLinkActive="active"><a routerLink="/profile">{{client.first}} {{client.last}}</a></li>
+        <li *ngIf="client" routerLinkActive="active"><a routerLink="/logout">Log Out</a></li>
+      </ul>
