@@ -11,6 +11,7 @@ import { IClient } from './../../services/client/client.model';
 })
 export class AvatarComponent implements OnInit {
   @Input() avatarUrl: string;
+  @Input() canEdit: false;
   @Output() submitAvatar: EventEmitter<string> = new EventEmitter();
   @ViewChild('childModal') public childModal: ModalDirective;
 

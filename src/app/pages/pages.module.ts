@@ -1,3 +1,4 @@
+import { DetailModule } from './detail/detail.module';
 import { ProfileModule } from './profile/profile.module';
 import { ProfileRoutingModule } from './profile/profile-routing.module';
 import { NgModule } from '@angular/core';
@@ -15,7 +16,8 @@ import { RegistrationModule } from './registration/registration.module';
     LoginModule,
     RegistrationModule,
     ProfileRoutingModule,
-    ProfileModule
+    ProfileModule,
+    DetailModule
   ]
 })
 export class PagesModule { }

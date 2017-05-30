@@ -9,6 +9,7 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 })
 export class SkillsComponent implements OnInit {
   @Input() skills: ISkill[];
+  @Input() canEdit = false;
   @ViewChild('addSkillModal') addSkillModal: ModalDirective;
   @ViewChild('focusInput') focusInput: any;
 

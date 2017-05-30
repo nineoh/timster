@@ -6,7 +6,7 @@
 
 <div class="row">
   <div class="col-md-8">
-    <tim-skills [skills]="client?.skills"></tim-skills>
+    <tim-skills [skills]="client?.skills" [canEdit]="true"></tim-skills>
   </div>
 </div>
 <div class="row">
@@ -14,6 +14,6 @@
     <tim-profile-form [client]="client" [showCancelButton]="false" (submitRegistration)="submitForm($event)"></tim-profile-form>      
   </div>
   <div class="col-md-4">
-    <tim-avatar [avatarUrl]="client?.avatar" (submitAvatar)="addAvatar($event)"></tim-avatar>
+    <tim-avatar [avatarUrl]="client?.avatar" (submitAvatar)="addAvatar($event)" [canEdit]="true"></tim-avatar>
   </div>
 </div>

@@ -1,3 +1,4 @@
+import { UserItemComponent } from './user-item/user-item.component';
 import { ClientPipe } from './pipes/client.pipe';
 import { RouterModule } from '@angular/router';
 import { CollapseModule } from 'ng2-bootstrap/collapse';
@@ -24,7 +25,8 @@ import { SkillsComponent } from './skills/skills.component';
     HeaderComponent,
     ProfileFormComponent,
     SkillsComponent,
-    ClientPipe
+    ClientPipe,
+    UserItemComponent
   ],
   exports: [
     ClientPipe,
@@ -33,7 +35,8 @@ import { SkillsComponent } from './skills/skills.component';
     ProfileFormComponent,
     FormsModule,
     ReactiveFormsModule,
-    SkillsComponent
+    SkillsComponent,
+    UserItemComponent
   ]
 })
 export class SharedModule { }

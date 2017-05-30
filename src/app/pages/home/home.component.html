@@ -9,9 +9,6 @@
 </div>
 
 <div class="list-group">
-    
-    <div *ngFor="let client of clients| client$:model | async" class="list-group-item">
-        <h4>{{client.first}}</h4>
-        <p>{{client.last}}</p>
-    </div>
+        <tim-user-item [client]="client" (clickDetail)="detail($event)" *ngFor="let client of clients| client$:model | async" class="list-group-item"></tim-user-item>
+
 </div>

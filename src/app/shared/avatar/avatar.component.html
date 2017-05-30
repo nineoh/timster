@@ -1,6 +1,6 @@
 <div class="tim-avatar">
   <img src="{{avatarUrl}}" alt="avatar" class="img-circle img-responsive">
-  <div class="avatar-overlay text-center" (click)="showChildModal()">
+  <div *ngIf="canEdit" class="avatar-overlay text-center" (click)="showChildModal()">
     <i class="fa fa-pencil fa-3x"></i>
   </div>
 

@@ -46,17 +46,15 @@ export class ClientService {
 
   update(client: IClient): Observable<IClient> {
     console.log('ClientService.updateSkill');
-    const url: string = `${CLIENT_ENDPOINT}/${client['id']}`;
+    const url  = `${CLIENT_ENDPOINT}/${client['id']}`;
     return this.http.put(url , client ).map( (response: Response) => <IClient>response.json() );
   }
 
   /**
-   * Get the client with the credentials
+   * Get the client with the id
    */
-  get(client?: IClient): Observable<IClient> {
-    return Observable.of({
-        first: 'TEST GET',
-        last: 'TEST'
-    });
+  get(id?: string): Observable<IClient> {
+    const url  = `${CLIENT_ENDPOINT}/${id}`;
+    return this.http.get(url ).map( (response: Response) => <IClient>response.json() );
   }
 }

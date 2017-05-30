@@ -1,12 +1,12 @@
 <div class="tim-skills">
-  <h3>Your Skills <button (click)="openModal()" class="btn btn-default btn-xs">Add</button></h3>
+  <h3 *ngIf="canEdit">Your Skills <button (click)="openModal()" class="btn btn-default btn-xs">Add</button></h3>
 
   <div class="flex-box">
     <div class="flex-item">
     </div>
     <div class="flex-item skill-item" *ngFor="let skill of skills">
       <span class="item-size-{{skill?.level}}">{{skill?.name}}</span>
-      <button type="button" class="btn btn-danger btn-xs invisible" (click)="removeSkill(skill)"><i class="fa fa-trash"></i></button>
+      <button *ngIf="canEdit" type="button" class="btn btn-danger btn-xs invisible" (click)="removeSkill(skill)"><i class="fa fa-trash"></i></button>
     </div>
   </div>
 
@@ -15,11 +15,11 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title pull-left">Add New Skill</h4>
-          <button type="button" class="close pull-right" aria-label="Close" (click)="addSkillModal.hide()">
+          <button *ngIf="canEdit" type="button" class="close pull-right" aria-label="Close" (click)="addSkillModal.hide()">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" *ngIf="canEdit">
           <form #skillForm="ngForm" class="form-inline" method="post" (ngSubmit)="addSkill()">
             <div class="row">
               <div class="col-md-12">

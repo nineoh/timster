@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
         (client: IClient) => {
           console.log('LoginComponent.login' , client);
           this.clientSession.setClient(client);
-          this.router.navigate(['profile']);
+          this.router.navigate(['home']);
         },
         (error: any) => console.error('LoginComponent.error', error) );
   }
