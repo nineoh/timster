@@ -26,7 +26,6 @@ import { LoginComponent } from './login.component';
     providers: [
         LogoutUserResolver
     ],
-  exports: [RouterModule],
-  
+  exports: [RouterModule]
 })
-export class LoginRoutingModule {}
+export class LoginRoutingModule { }

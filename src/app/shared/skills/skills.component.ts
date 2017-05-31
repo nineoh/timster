@@ -1,13 +1,13 @@
 import { ModalDirective } from 'ng2-bootstrap/modal';
 import { ISkill } from './../../services/client/client.model';
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'tim-skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss']
 })
-export class SkillsComponent implements OnInit {
+export class SkillsComponent {
   @Input() skills: ISkill[];
   @Input() canEdit = false;
   @ViewChild('addSkillModal') addSkillModal: ModalDirective;
@@ -16,9 +16,6 @@ export class SkillsComponent implements OnInit {
   model: ISkill = {name: undefined, level: 1};
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   addSkill() {
     this.skills.push({name: this.model.name, level: this.model.level});

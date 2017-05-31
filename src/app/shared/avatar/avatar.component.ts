@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDirective } from 'ng2-bootstrap/modal';
 import { ClientService } from './../../services/client/client.service';
@@ -9,7 +9,7 @@ import { IClient } from './../../services/client/client.model';
   templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.scss']
 })
-export class AvatarComponent implements OnInit {
+export class AvatarComponent{
   @Input() avatarUrl: string;
   @Input() canEdit: false;
   @Output() submitAvatar: EventEmitter<string> = new EventEmitter();
@@ -21,9 +21,6 @@ export class AvatarComponent implements OnInit {
     this.avatarForm = _formBuilder.group({
       avatarUrl: ['', Validators.required]
     });
-  }
-
-  ngOnInit() {
   }
 
   public showChildModal(): void {

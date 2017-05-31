@@ -1,6 +1,6 @@
 import { ClientSession } from './../../services/client/client.session';
 import { IClient } from './../../services/client/client.model';
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'tim-header',

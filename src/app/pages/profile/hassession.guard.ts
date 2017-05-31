@@ -5,9 +5,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 
 @Injectable()
 export class HasSession implements CanActivate {
-    constructor(private clientSession: ClientSession, private router: Router){
-        console.log('HasSession.canActivate init');
-    }
+    constructor(private clientSession: ClientSession, private router: Router) {}
 
     canActivate(
         route: ActivatedRouteSnapshot,
