@@ -5,16 +5,16 @@
 </div>
 <div class="row">
   <div class="col-md-6 col-md-offset-3 vertical-space">
-      <tim-avatar [avatarUrl]="avatarUrl" (submitAvatar)="addAvatar($event)"></tim-avatar>
+      <tim-avatar [avatarUrl]="avatarUrl" (submitAvatar)="addAvatar($event)" [canEdit]="true"></tim-avatar>
   </div>
 </div>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <tim-skills [skills]="skills"></tim-skills>
+    <tim-skills [skills]="skills" [canEdit]="true"></tim-skills>
   </div>
 </div>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-      <tim-profile-form (submitRegistration)="submitForm($event)"></tim-profile-form>      
+      <tim-profile-form (submitRegistration)="submitForm($event)" ></tim-profile-form>      
   </div>
 </div>
