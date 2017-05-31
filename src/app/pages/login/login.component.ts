@@ -13,6 +13,7 @@ export class LoginComponent implements AfterViewInit {
   @ViewChild('focusInput') focusInput: any;
 
   formData: ICredentials = { username: '', password: '' };
+  loginError = false;
 
   constructor(private clientServive: ClientService,
     private clientSession: ClientSession,
@@ -27,10 +28,13 @@ export class LoginComponent implements AfterViewInit {
     this.clientServive.login(this.formData)
       .subscribe(
       (client: IClient) => {
-        console.log('LoginComponent.login', client);
         this.clientSession.setClient(client);
+        this.loginError = false;
         this.router.navigate(['home']);
       },
-      (error: any) => console.error('LoginComponent.error', error));
+      (error: any) => {
+        this.loginError = true;
+        console.error('LoginComponent.error', error);
+      });
   }
 }

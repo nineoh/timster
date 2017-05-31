@@ -3,12 +3,14 @@
         <h1>Home</h1>
     </div>
     <div class="col-md-4">
-        <input type="query" [(ngModel)]="model" class="pull-right">
-        <h4 class="pull-right">Filter: </h4>
+        <h1><input type="query" [(ngModel)]="model" class="pull-right form-control" placeholder="Search..."></h1>
     </div>
 </div>
 
 <div class="list-group">
-        <tim-user-item [client]="client" (clickDetail)="detail($event)" *ngFor="let client of clients| client$:model | async" class="list-group-item"></tim-user-item>
-
+        <tim-user-item 
+            [client]="client" 
+            (clickDetail)="detail($event)" 
+            *ngFor="let client of clients| client$:model | async" 
+            class="list-group-item"></tim-user-item>
 </div>

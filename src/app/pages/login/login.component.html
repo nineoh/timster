@@ -6,7 +6,7 @@
 
         <div class="row">
           <div class="col-md-12">
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{'has-error': loginError}">
               <label for="inputUsername" class="sr-only">Username</label>
               <input #focusInput type="text" id="inputUsername" name="username" [(ngModel)]="formData.username" class="form-control" placeholder="Username"
                 required autofocus>
@@ -17,10 +17,12 @@
 
         <div class="row">
           <div class="col-md-12">
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{'has-error': loginError}">
               <label for="inputPassword" class="sr-only">Password</label>
               <input type="password" id="inputPassword" name="password" [(ngModel)]="formData.password" class="form-control" placeholder="Password"
+              
                 required>
+                <span *ngIf="loginError" class="help-block">wrong password or user</span>  
             </div>
           </div>
         </div>
