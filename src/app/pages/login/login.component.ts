@@ -6,8 +6,7 @@ import { Component, AfterViewInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'tim-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  templateUrl: './login.component.html'
 })
 export class LoginComponent implements AfterViewInit {
   @ViewChild('focusInput') focusInput: any;

@@ -4,8 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'tim-profile-form',
-  templateUrl: './profile-form.component.html',
-  styleUrls: ['./profile-form.component.scss']
+  templateUrl: './profile-form.component.html'
 })
 export class ProfileFormComponent implements OnInit {
   @Input() client: IClient;

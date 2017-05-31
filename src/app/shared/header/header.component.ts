@@ -4,8 +4,7 @@ import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'tim-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
   isCollapsed = true;

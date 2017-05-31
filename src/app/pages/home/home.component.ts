@@ -6,8 +6,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'tim-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
   clients: Observable<IClient[]>;
