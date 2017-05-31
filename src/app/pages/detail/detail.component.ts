@@ -8,18 +8,20 @@ import { Component, OnInit } from '@angular/core';
 export class DetailComponent implements OnInit {
     client: IClient;
 
-    constructor(private route: ActivatedRoute, private router: Router
+    constructor(
+        private _route: ActivatedRoute,
+        private _router: Router
     ) { }
 
     // Resolve the client from route data
     ngOnInit() {
-        this.route.data
-        .map( data => data.client )
-        .subscribe(
+        this._route.data
+            .map(data => data.client)
+            .subscribe(
             (client: IClient) => this.client = client,
             //  navigate the user back to the home screen
-            (error: any) => this.router.navigate(['home'])
-        );
+            (error: any) => this._router.navigate(['home'])
+            );
     }
 
 }

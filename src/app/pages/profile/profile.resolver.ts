@@ -8,13 +8,13 @@ import {Observable} from 'rxjs/Rx';
 @Injectable()
 export class ProfileResolver implements Resolve<IClient> {
 
-constructor(private clientSession: ClientSession) {}
+constructor(private _clientSession: ClientSession) {}
 
 resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<IClient> {
 
-    return Observable.of( this.clientSession.getClient() );
+    return Observable.of( this._clientSession.getClient() );
   }
 }

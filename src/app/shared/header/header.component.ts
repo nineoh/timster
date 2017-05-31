@@ -10,10 +10,10 @@ export class HeaderComponent implements OnInit {
   isCollapsed = true;
   client: IClient;
 
-  constructor(private clientSession: ClientSession) { }
+  constructor(private _clientSession: ClientSession) { }
 
   ngOnInit() {
-    this.clientSession.client$.subscribe( (client: IClient) => this.client = client );
+    this._clientSession.client$.subscribe( (client: IClient) => this.client = client );
   }
 
   close(event: Event): void {

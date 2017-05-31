@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { ClientSession } from './../../services/client/client.session';
-import { ClientService , IClient} from './../../services/client';
+import { ClientService, IClient } from './../../services/client';
 import { Observable } from 'rxjs/Rx';
 import { Component, OnInit } from '@angular/core';
 
@@ -13,20 +13,20 @@ export class HomeComponent implements OnInit {
   model: string;
 
   constructor(
-    private clientService: ClientService,
-    private clientSession: ClientSession,
-    private router: Router) { }
+    private _clientService: ClientService,
+    private _clientSession: ClientSession,
+    private _router: Router) { }
 
   ngOnInit() {
-      // usage of publishReplay which causes a caching of the data
-      this.clients = this.clientService
-        .list()
-        .map((clients: IClient[]) => clients.filter( ({id}) => id !==  this.clientSession.getClient().id ))
-        .publishReplay()
-        .refCount();
+    // usage of publishReplay which causes a caching of the data
+    this.clients = this._clientService
+      .list()
+      .map((clients: IClient[]) => clients.filter(({ id }) => id !== this._clientSession.getClient().id))
+      .publishReplay()
+      .refCount();
   }
 
-  detail($event: IClient){
-    this.router.navigate(['/detail', $event.id]);
+  detail($event: IClient) {
+    this._router.navigate(['/detail', $event.id]);
   }
 }

@@ -9,7 +9,7 @@ import { IClient } from './../../services/client/client.model';
   templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.scss']
 })
-export class AvatarComponent{
+export class AvatarComponent {
   @Input() avatarUrl: string;
   @Input() canEdit: false;
   @Output() submitAvatar: EventEmitter<string> = new EventEmitter();

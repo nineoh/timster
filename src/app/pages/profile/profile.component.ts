@@ -11,13 +11,13 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
   client: IClient;
 
-  constructor(private route: ActivatedRoute,
-              private clientSession: ClientSession,
-              private clientService: ClientService) { }
+  constructor(private _route: ActivatedRoute,
+              private _clientSession: ClientSession,
+              private _clientService: ClientService) { }
 
   ngOnInit() {
     // fetch the data from the route
-    this.route.data
+    this._route.data
       .subscribe( (data: {client: IClient}) => {
         this.client = data.client;
         if (!this.client.skills) {
@@ -35,8 +35,8 @@ export class ProfileComponent implements OnInit {
     $event.avatar = this.client.avatar;
     $event.skills = this.client.skills;
     console.log('RegistrationComponent.submitForm', $event);
-    this.clientService.update($event).subscribe( (client: IClient) => {
-      this.clientSession.setClient(client);
+    this._clientService.update($event).subscribe( (client: IClient) => {
+      this._clientSession.setClient(client);
       this.client = client;
     });
   }

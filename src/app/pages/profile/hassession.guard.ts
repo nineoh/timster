@@ -5,16 +5,18 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 
 @Injectable()
 export class HasSession implements CanActivate {
-    constructor(private clientSession: ClientSession, private router: Router) {}
+    constructor(
+        private _clientSession: ClientSession,
+        private _router: Router) {}
 
     canActivate(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): Observable<boolean>|boolean {
-        console.log('HasSession.canActivate' , this.clientSession.hasClient());
-        if (this.clientSession.hasClient()) {
+        console.log('HasSession.canActivate' , this._clientSession.hasClient());
+        if (this._clientSession.hasClient()) {
             return true;
         }else {
-            this.router.navigate(['login']);
+            this._router.navigate(['login']);
             return false;
         }
     }

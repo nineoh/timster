@@ -9,7 +9,7 @@ import {Observable} from 'rxjs/Rx';
 @Injectable()
 export class DetailResolver implements Resolve<IClient> {
 
-constructor(private clientSession: ClientSession, private clientService: ClientService) {}
+constructor(private _clientSession: ClientSession, private _clientService: ClientService) {}
 
 resolve(
     route: ActivatedRouteSnapshot,
@@ -18,6 +18,6 @@ resolve(
 
     const id = route.params['id'];
 
-    return this.clientService.get(id);
+    return this._clientService.get(id);
   }
 }

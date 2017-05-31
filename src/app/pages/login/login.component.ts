@@ -14,9 +14,10 @@ export class LoginComponent implements AfterViewInit {
   formData: ICredentials = { username: '', password: '' };
   loginError = false;
 
-  constructor(private clientServive: ClientService,
-    private clientSession: ClientSession,
-    private router: Router) { }
+  constructor(
+    private _clientServive: ClientService,
+    private _clientSession: ClientSession,
+    private _router: Router) { }
 
   ngAfterViewInit(): void {
     this.focusInput.nativeElement.focus();
@@ -24,12 +25,12 @@ export class LoginComponent implements AfterViewInit {
 
 
   login() {
-    this.clientServive.login(this.formData)
+    this._clientServive.login(this.formData)
       .subscribe(
       (client: IClient) => {
-        this.clientSession.setClient(client);
+        this._clientSession.setClient(client);
         this.loginError = false;
-        this.router.navigate(['home']);
+        this._router.navigate(['home']);
       },
       (error: any) => {
         this.loginError = true;

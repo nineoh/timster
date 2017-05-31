@@ -12,9 +12,9 @@ export class RegistrationComponent {
   avatarUrl = 'https://placehold.it/200x200';
   skills: ISkill[] = [];
 
-  constructor(private clientService: ClientService,
-              private clientSession: ClientSession,
-              private router: Router) { }
+  constructor(private _clientService: ClientService,
+              private _clientSession: ClientSession,
+              private _router: Router) { }
 
   addAvatar(avatarUrl: string) {
     console.log('Add avatar URL', avatarUrl);
@@ -25,14 +25,14 @@ export class RegistrationComponent {
     client.avatar = this.avatarUrl;
     client.skills = this.skills;
     console.log('RegistrationComponent.submitForm', client);
-    this.clientService.add(client).subscribe( (res: IClient) => {
+    this._clientService.add(client).subscribe( (res: IClient) => {
       console.log('RegistrationComponent.added client' , res);
 
       // Update client session
-      this.clientSession.setClient(res);
+      this._clientSession.setClient(res);
 
       // Redirect to profile page
-      this.router.navigate(['profile']);
+      this._router.navigate(['profile']);
     });
   }
 
