@@ -5,12 +5,12 @@ import { LoginComponent } from './login.component';
 
 
 
-  const routes: Routes = [
+const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
   },
-   {
+  {
     path: 'logout',
     resolve: {
       user: LogoutUserResolver
@@ -20,12 +20,12 @@ import { LoginComponent } from './login.component';
 ];
 
 @NgModule({
-   imports: [
+  imports: [
     RouterModule.forChild(routes)
-    ],
-    providers: [
-        LogoutUserResolver
-    ],
+  ],
+  providers: [
+    LogoutUserResolver
+  ],
   exports: [RouterModule]
 })
 export class LoginRoutingModule { }
