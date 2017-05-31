@@ -6,11 +6,11 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './detail.component.html'
 })
 export class DetailComponent implements OnInit {
-    private client: IClient;
+    client: IClient;
 
     constructor(private route: ActivatedRoute, private router: Router
     ) { }
-    
+
     // Resolve the client from route data
     ngOnInit() {
         this.route.data
